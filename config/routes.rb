@@ -1,6 +1,7 @@
 Recipes::Application.routes.draw do
   resources :recipes
 
+  match "/logout" => "sessions#destroy"
   match "/auth/:provider/callback" => "sessions#create"
 
   root to: 'recipes#index'
