@@ -1,6 +1,9 @@
 Recipes::Application.routes.draw do
   resources :recipes
 
+  match "/logout" => "sessions#destroy"
+  match "/auth/:provider/callback" => "sessions#create"
+
   root to: 'recipes#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
